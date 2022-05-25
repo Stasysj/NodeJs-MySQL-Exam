@@ -15,6 +15,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Gera pradzia');
 });
-
+// -404
+app.all('*', (req, res) => {
+  res.status(404).json({ error: 'Page not found' });
+});
 // ------------------------------------------------
 app.listen(PORT, () => console.log('Server is running on port', PORT));
