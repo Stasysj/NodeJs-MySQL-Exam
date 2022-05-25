@@ -1,2 +1,14 @@
 
-GET http://localhost:3000/
+GET http://localhost:3000/api/users
+
+###----------------------------/register
+
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+ {
+    "full_name": "zenius",
+    "email": "zenius@xxx.lt",
+    "password": "123456"
+    
+  }
