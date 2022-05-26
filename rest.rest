@@ -44,4 +44,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhd
 
 ###-------------------------get /bills/:group_id
 GET http://localhost:3000/api/bills/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0MjE3NCwiZXhwIjoxNjUzNTQ1Nzc0fQ.hAgA-SeiIo0gHzCXKT7_mzJnICFabUeKiwYyWL70KT0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0NTg5MSwiZXhwIjoxNjUzNTQ5NDkxfQ.qBmbeMDcLwnWm5K3HhBAXXWg0Yah-DU59URycj6QULQ
+
+####---------------------POST bill
+
+POST http://localhost:3000/api/bills?group_id=2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0NTg5MSwiZXhwIjoxNjUzNTQ5NDkxfQ.qBmbeMDcLwnWm5K3HhBAXXWg0Yah-DU59URycj6QULQ
+
+ {
+    "group_id": 1,
+    "amount": 25,
+    "description": "Uz nakvyne"
+        
+  }

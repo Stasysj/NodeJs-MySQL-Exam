@@ -21,7 +21,13 @@ function getBillbyGroupIdDB(group_id) {
   return executeDb(sql, [group_id]);
 }
 
+function addBillDB(group_id, amount, description) {
+  const sql = 'INSERT INTO bills (group_id, amount, description) VALUES (?, ?, ?)';
+  return executeDb(sql, [group_id, amount, description]);
+}
+
 // -------------------------------------
 module.exports = {
   getBillbyGroupIdDB,
+  addBillDB,
 };

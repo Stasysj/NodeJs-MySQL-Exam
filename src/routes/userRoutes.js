@@ -13,6 +13,7 @@ userRoutes.get('/users', validateToken, getUsers);
 
 // ---------------------------------
 userRoutes.post('/register', validateUser, regUser);
+// -------------------------------------------
 
 userRoutes.post('/login', validateUser, loginUser);
 // ----------------------
