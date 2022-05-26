@@ -22,7 +22,8 @@ h1 {
 }
 
 nav {
-    background-color: rgba(60, 64, 68, 0.562);
+  background-color: rgba(60, 64, 68, 0.562);
+  border-bottom: 1px solid rgba(40, 41, 43, 0.774);
   color: snow;
 }
 .navLink {
@@ -45,15 +46,17 @@ nav {
   padding: 30px 20px;
   background-color: rgba(88, 101, 114, 0.562);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  /* border: 1px solid rgba(40, 41, 43, 0.774); */
+  transition: 0.2s ease;
   /* position: relative;
     height: 400px; */
 }
-.title{
-    color: white;
-
+.title {
+  color: white;
+  text-align: center;
 }
-#register{
-    padding-top: 15px;
+#register {
+  padding-top: 15px;
 }
 footer {
   text-align: center;
@@ -62,61 +65,68 @@ footer {
   padding: 10px;
   color: white;
   font-size: 12px;
+  border-top: 1px solid rgba(40, 41, 43, 0.774);
 }
 /* .left-box{
     position: absolute;
     top: 0;
     left: 0;
 } */
-input
-{
-  display: block;  
-  margin-bottom: 5px;
+input {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 1px;
   padding: 4px;
   width: 100%;
   height: 32px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #aaa;
-  transition: 0.2s ease;
+  border-bottom: 1px solid rgba(40, 41, 43, 0.774);
+  /* transition: 0.2s ease; */
   border-radius: 2px;
   background-color: rgba(60, 64, 68, 0);
   color: white;
 }
 ::placeholder {
-    color:  rgba(210, 215, 219, 0.76);
-    opacity: 1; 
-  }
-button{
-    width: 50%;
-    border: none;
-    border-radius: 2px;
-    /* transition: 2s ease; */
-    height: 32px;
-    background-color: rgba(40, 41, 43, 0.774);
-    color: white;
-    letter-spacing: 2px;
-    border: 1px solid #aaa;;
-    margin-top: 15px;
+  color: rgba(206, 212, 218, 0.76);
+  opacity: 1;
+}
+button {
+  width: 50%;
+  border: none;
+  border-radius: 2px;
+  /* transition: 2s ease; */
+  height: 32px;
+  background-color: rgba(40, 41, 43, 0.774);
+  color: white;
+  letter-spacing: 2px;
+  border: 1px solid #aaa;
+  margin-top: 15px;
 }
 
-
 /* -------------------------------------validation */
-.error-msg, #err {
-  color: rgb(253, 61, 28);
+.error-msg,
+#err {
+  color: black;
   margin-top: 0;
   font-size: 12px;
   letter-spacing: 2px;
-  font-weight: 500;
 }
 .invalid-input {
-  border: 1px solid tomato;
+  border-bottom: 2px solid tomato;
   /* background-color: rgb(255, 207, 199); */
   background-color: white;
   color: black;
 }
 
-.invalid-input-content{
-  background-color:  rgb(255, 207, 199, 0.774);
-
+.invalid-input-content {
+  background-color: rgba(211, 159, 150, 0.774);
+}
+.good-input-content {
+  background-color: rgba(20, 192, 43, 0.774);
+}
+#err {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

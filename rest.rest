@@ -1,6 +1,6 @@
 
 GET http://localhost:3000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0MjE3NCwiZXhwIjoxNjUzNTQ1Nzc0fQ.hAgA-SeiIo0gHzCXKT7_mzJnICFabUeKiwYyWL70KT0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU5MzY0NiwiZXhwIjoxNjUzNTk3MjQ2fQ.TtN4_Q_Z-VbYFhSHGlluJ82w7D5q0xiDrBYgIwGCMLs
 
 ###----------------------------/register
 
@@ -40,7 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhd
 
 ###---------------------get aCCOUNT
 GET http://localhost:3000/api/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0MjE3NCwiZXhwIjoxNjUzNTQ1Nzc0fQ.hAgA-SeiIo0gHzCXKT7_mzJnICFabUeKiwYyWL70KT0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU5ODUzMywiZXhwIjoxNjUzNjAyMTMzfQ.g6G00yP0yYONUSMjsc3qCiwV6dGlWDKeq7RnhKety74
 
 ###-------------------------get /bills/:group_id
 GET http://localhost:3000/api/bills/1

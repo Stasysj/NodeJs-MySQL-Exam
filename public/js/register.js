@@ -1,11 +1,11 @@
 import { clearErrorsArr, checkInput, errorsArr } from './modules/validations.js';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = 'http://localhost:3000/api';
 const formEl = document.getElementById('register');
 const errroEl = document.getElementById('err');
 const passEl = formEl.elements.password;
 const passReEl = formEl.elements.repeat_password;
-const fullNameEl=formEl.elements.full_name;
+const fullNameEl = formEl.elements.full_name;
 const contentEl = document.querySelector('.content');
 // ----------------------------------------------------------Valid select
 const errorMsgElementsArr = document.querySelectorAll('.error-msg');
@@ -17,13 +17,18 @@ function clearErrors() {
     htmlElement.textContent = '';
     htmlElement.previousElementSibling.classList.remove('invalid-input');
     contentEl.classList.remove('invalid-input-content');
+    contentEl.classList.remove('good-input-content');
   });
 }
 // ---------------------------------------
-function handleError(msg) {
+function handleError(msg, bullian) {
   errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
+  }
+  if (!bullian === false) {
+    contentEl.classList.add('good-input-content');
+  } else {
     contentEl.classList.add('invalid-input-content');
   }
   if (Array.isArray(msg)) {
@@ -55,8 +60,9 @@ passReEl.addEventListener('input', (event) => {
   handleError(errorsArr);
 });
 // ----------------------------------------------------
-async function registerFetch(email, password) {
-  const registerObj = { email, password };
+async function registerFetch(full_name, email, password) {
+  const registerObj = { full_name, email, password };
+  console.log(registerObj);
   const resp = await fetch(`${baseUrl}/register`, {
     method: 'POST',
     headers: {
@@ -66,7 +72,7 @@ async function registerFetch(email, password) {
   });
   if (resp.status === 201) {
     // success
-    handleError('registration successful');
+    handleError('registration successful', true);
   } else {
     // fail
     const res = await resp.json();
@@ -79,17 +85,17 @@ formEl.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const regObj = {
-    fullName: formEl.elements.full_name.value.trim(),
+    full_name: formEl.elements.full_name.value.trim(),
     email: formEl.elements.email.value.trim(),
     password: formEl.elements.password.value.trim(),
     repPassword: formEl.elements.repeat_password.value.trim(),
   };
   if (formEl.elements.password.value.trim() !== formEl.elements.repeat_password.value.trim()) {
-    handleError('Data incorrect: skirtingi slaptaz.');
+    handleError('Data incorrect: skirtingi slaptaz.', false);
     return;
   }
   clearErrors();
-  checkInput(regObj.fullName, 'full_name', ['required', 'minLength-2', 'maxLength-15']);
+  checkInput(regObj.full_name, 'full_name', ['required', 'minLength-2', 'maxLength-15']);
 
   checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
   checkInput(regObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
@@ -102,5 +108,5 @@ formEl.addEventListener('submit', async (event) => {
     return;
   }
   //----------------------------------------------
-  registerFetch(regObj.email, regObj.password);
+  registerFetch(regObj.full_name, regObj.email, regObj.password);
 });

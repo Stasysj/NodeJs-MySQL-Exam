@@ -40,17 +40,18 @@ async function loginUser(req, res) {
   // patikrinti ar yra toks email kaip gautas
   const foundUserArr = await findUserByEmail(gautasEmail);
   // nes findUserByEmail grazina visada masyva
+
   const foundUser = foundUserArr[0];
   console.log('foundUser ===', foundUser);
   // jei nera 400 email or password not found
   if (!foundUser) {
-    res.status(400).json('email or password not found (email)');
+    res.status(400).json('email or password not found ');
     return;
   }
   // jei yra tikrinam ar sutampa slaptazodis
   // bcrypt.compareSync(ivestas slaptazodis, issaugotas hashed slaptazodis)
   if (!passWordsMatch(gautasSlaptazodis, foundUser.password)) {
-    res.status(400).json('email or password not found (pass)');
+    res.status(400).json('email or password not found ');
     return;
   }
   // sugeneruoti jwt token
