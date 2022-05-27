@@ -79,7 +79,7 @@ async function loginFetch(email, password) {
     const { token } = dataInJs;
     localStorage.setItem('Token', token);
 
-    // window.location.replace('index.html');
+    window.location.replace('groups.html');
   } else {
     console.log('login fail');
     clearErrors();

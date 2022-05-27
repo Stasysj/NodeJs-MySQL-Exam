@@ -4,7 +4,9 @@ const { getBillbyGroupIdDB, addBillDB } = require('../model/billModel');
 async function getBillbyGroupId(req, res) {
   // const idfromToken = req.userId ;
   const { group_id } = req.params;
-  console.log(group_id);
+  const id = req.userId;
+  console.log('groupid', group_id);
+  console.log('userid', id);
   try {
     const billByGroupIdArr = await getBillbyGroupIdDB(group_id);
     res.json(billByGroupIdArr);

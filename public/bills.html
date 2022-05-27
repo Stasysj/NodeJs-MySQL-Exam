@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bills</title>
+    <script type="module" src="./js/bills.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <nav>
+          <a href="/public/register.html" class="navLink home">Register</a>
+          <a href="/public/login.html" class="navLink about">Login</a>
+          <a href="/public/groups.html" class="navLink contact">Groups</a>
+          <a href="/public/bills.html" class="navLink books">Biils</a>
+        </nav>
+      </header>
+
+      <main class="bills-content">
+        <div class="page-titel">
+          <h1>Trip to spain DOMMMM</h1>
+          <h2 class="title">Group's bills:</h2>
+        </div>
+        <div class="tabel">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- ---- -->
+              <tr>
+                <td>January</td>
+                <td>$100</td>
+                <td>$100</td>
+              </tr>
+              <!-- ------  -->
+              </tbody>
+          </table>
+        </div>
+        <div class="form">
+          <form id="bills">
+            <p id="err"></p>
+            <p class="error-msg"></p>
+            <input type="number" name="amount" step="0.01" placeholder="Amount" />
+            <p class="error-msg"></p>
+            <!-- <textarea name="description" id="textarea" cols="30" rows="1" placeholder="Description">
+            </textarea> -->
+            <input type="text" name="description" placeholder="Description" />
+            <p class="error-msg"></p>
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </main>
+      <footer>Copyright &copy; 2022</footer>
+    </div>
+  </body>
+</html>

@@ -72,7 +72,8 @@ footer {
     top: 0;
     left: 0;
 } */
-input {
+input
+ {
   display: block;
   margin-top: 5px;
   margin-bottom: 1px;
@@ -87,7 +88,7 @@ input {
   background-color: rgba(60, 64, 68, 0);
   color: white;
 }
-::placeholder {
+input::placeholder {
   color: rgba(206, 212, 218, 0.76);
   opacity: 1;
 }
@@ -129,4 +130,79 @@ button {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+/*-------------------------------------------- Group page css*/
+
+.group_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+  /* background-color: aqua; */
+}
+
+.group-card {
+  background-color: rgba(255, 255, 255, 0.726);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  /* border: 1px solid rgba(40, 41, 43, 0.774); */
+  text-align: center;
+  padding: 15px;
+}
+.group-content {
+  max-width: 800px;
+  /* width: 300px; */
+  margin: auto auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  /* border: 1px solid rgba(40, 41, 43, 0.774); */
+  transition: 0.2s ease;
+  /* position: relative;
+    height: 400px; */
+}
+.group-card:hover {
+  background-color: rgba(211, 159, 150, 0.774);
+  /* box-shadow: 0 2px 4px rgba(153, 153, 153, 0.6); */
+  cursor: pointer;
+
+  /* border: 1px solid rgba(40, 41, 43, 0.774); */
+}
+.group-card-title {
+  font-size: 12px;
+  margin-top: 10px;
+}
+/* --------------------------------------------------------Bills css */
+
+.bills-content {
+  max-width: 800px;
+  /* width: 300px; */
+  margin: auto auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  /* border: 1px solid rgba(40, 41, 43, 0.774); */
+  transition: 0.2s ease;
+  /* position: relative;
+    height: 400px; */
+}
+/* #textarea::placeholder {
+  color: rgb(255, 11, 11);
+} */
+
+/* --------------------------------------------Table */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
