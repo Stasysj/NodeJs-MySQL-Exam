@@ -24,8 +24,9 @@ async function addBill(req, res) {
 
   try {
     const saveResult = await addBillDB(group_id, amount, description);
+    console.log('saveResult', saveResult);
     if (saveResult.affectedRows === 1) {
-      res.sendStatus(201);
+      res.status(201).json('Bill add');
       return;
     }
     res.status(400).json('Bill nepridetas');

@@ -25,6 +25,7 @@ nav {
   background-color: rgba(60, 64, 68, 0.562);
   border-bottom: 1px solid rgba(40, 41, 43, 0.774);
   color: snow;
+  margin-bottom: 15px;
 }
 .navLink {
   text-decoration: none;
@@ -105,32 +106,7 @@ button {
   margin-top: 15px;
 }
 
-/* -------------------------------------validation */
-.error-msg,
-#err {
-  color: black;
-  margin-top: 0;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-.invalid-input {
-  border-bottom: 2px solid tomato;
-  /* background-color: rgb(255, 207, 199); */
-  background-color: white;
-  color: black;
-}
 
-.invalid-input-content {
-  background-color: rgba(211, 159, 150, 0.774);
-}
-.good-input-content {
-  background-color: rgba(20, 192, 43, 0.774);
-}
-#err {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
 
 /*-------------------------------------------- Group page css*/
 
@@ -205,4 +181,30 @@ td {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+/* -------------------------------------validation */
+.error-msg,
+#err {
+  color: black;
+  margin-top: 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.invalid-input {
+  border-bottom: 2px solid tomato;
+  /* background-color: rgb(255, 207, 199); */
+  background-color: white;
+  color: black;
+}
+
+.invalid-input-content {
+  background-color: rgba(211, 159, 150, 0.774);
+}
+.good-input-content {
+  background-color: rgba(20, 192, 43, 0.774);
+}
+#err {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

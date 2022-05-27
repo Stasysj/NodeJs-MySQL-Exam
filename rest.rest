@@ -42,18 +42,18 @@ GET http://localhost:3000/api/accounts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzYzMTQxMiwiZXhwIjoxNjUzNjM1MDEyfQ.daUF22rNvk4zWzkQ2IgKaR4NDHNPRwL9L9nXJjIZ_i4
 
 ###-------------------------get /bills/:group_id
-GET http://localhost:3000/api/bills/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzYzOTYyMywiZXhwIjoxNjUzNjQzMjIzfQ.IzJhH-Myr7msbFd0DvgT5g9b3PCHG0iW53_jHWTnw-s
+GET http://localhost:3000/api/bills/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzY0OTc0OSwiZXhwIjoxNjUzNjUzMzQ5fQ.az-i0wyDyfYRn3Dh2wa5VeDaag2dmTLuXUolvq_uXho
 
 ####---------------------POST bill
 
 POST http://localhost:3000/api/bills?group_id=2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzU0NTg5MSwiZXhwIjoxNjUzNTQ5NDkxfQ.qBmbeMDcLwnWm5K3HhBAXXWg0Yah-DU59URycj6QULQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzY0ODg3NywiZXhwIjoxNjUzNjUyNDc3fQ.UZeCnuvhqWCWKLIWBf69akoffpyBrqILFhlCaRwbOUQ
 
  {
     "group_id": 1,
-    "amount": 25,
-    "description": "Uz nakvyne"
+    "amount": 50,
+    "description": "Uz buta"
         
   }

@@ -72,6 +72,12 @@ export function checkInput(valueToCheck, field, rulesArr) {
         addError(`Too long. Length must be less than ${max}`, field);
       }
     }
+    if (rule === 'positive') {
+      if (valueToCheck < 0) {
+        addError('must be positive', field);
+        return;
+      }
+    }
 
     // rule ===  email tikrinam ar yra @ raide
     //
