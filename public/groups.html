@@ -18,30 +18,27 @@
           <a href="/public/bills.html" class="navLink books">Biils</a>
         </nav>
       </header>
-
       <main class="group-content">
         <div class="page-titel">
           <h1 class="title">Select your group</h1>
         </div>
-        <div class="group_container">
-          <div class="group-card">
-            <h3 class="group-card-id">id:1</h3>
-            <p class="group-card-title">Our Trip to SF</p>
-          </div>
-          <div class="group-card">
-            <h3 class="group-card-id">id:1</h3>
-            <p class="group-card-title">Our Trip to SF</p>
-          </div>
-          <div class="group-card">
-            <h3 class="group-card-id">id:1</h3>
-            <p class="group-card-title">Our Trip to SF</p>
-          </div>
-          <div class="group-card">
-            <h3 class="group-card-id">id:1</h3>
-            <p class="group-card-title">Our Trip to SF</p>
-          </div>
-        </div>
+        <div class="group_container"></div>
       </main>
+      <div class="form-group">
+        <p class="addtitle">Click to add new Group.</p>
+        <form id="group">
+          <p id="err"></p>
+          <select class="group-select" name="cars" id="cars">
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+          <!-- <input type="text" name="description" placeholder="Group" /> -->
+          <p class="error-msg"></p>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
       <footer>Copyright &copy; 2022</footer>
     </div>
   </body>

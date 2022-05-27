@@ -57,3 +57,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhd
     "description": "Uz buta"
         
   }
+
+###------------------------GET group
+GET http://localhost:3000/api/groups
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzY3MjQ1MCwiZXhwIjoxNjUzNjc2MDUwfQ.5x8yj4YduEdz23pJVERaUYEMkV6SEwEmYz8YKte0sqc

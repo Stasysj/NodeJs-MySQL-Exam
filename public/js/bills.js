@@ -9,7 +9,24 @@ const contentEl = document.querySelector('.bills-content');
 const bodyEl = document.querySelector('tbody');
 const errroEl = document.getElementById('err');
 const token = localStorage.getItem('Token');
+const billTitleEl = document.querySelector('.title');
+const divFormEl = document.querySelector('.form');
+const addBilTitlePEl = document.querySelector('.addmenu');
 console.log('token ===', token);
+
+const cardName = window.location.href.split('+')[1].split('%20').join(' ');
+billTitleEl.textContent = cardName;
+console.log('cardName', cardName);
+
+contentEl.addEventListener('click', addMeniu);
+function addMeniu() {
+  console.log('click');
+  divFormEl.classList.add('see-form');
+  addBilTitlePEl.textContent = '';
+  contentEl.removeEventListener('click', addMeniu);
+}
+
+//   contentEl.removeEventListener
 
 function creatEl(tag, text, clas, dest) {
   const newEl = document.createElement(tag);
@@ -31,14 +48,14 @@ function renderBill(arr, dest) {
 
 async function getBills(userToken) {
   const groupID = window.location.search.split('=');
-  const groupsArr = await getFetch(`bills/${groupID[1]}`, userToken);
-  console.log('groupsArr ===', groupsArr);
+  const billsArr = await getFetch(`bills/${groupID[1]}`, userToken);
+//   console.log('groupsArr ===', billsArr);
   //   if (!Array.isArray(groupsArr)) {
   //     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
   //     window.location.href = 'login.html';
   //   }
 
-  renderBill(groupsArr, bodyEl);
+  renderBill(billsArr, bodyEl);
 }
 
 getBills(token);
@@ -79,14 +96,14 @@ function handleError(msg, bullian) {
 // -------------------------------------------------------
 async function postFetch(group_id, amount, description) {
   const billObj = { group_id, amount, description };
-  console.log(billObj);
+//   console.log(billObj);
   const resp = await fetch(`${BASE_URL}/bills?group_id=${group_id}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(billObj),
   });
   const dataInJs = await resp.json();
-  console.log('dataInJs ===', dataInJs);
+//   console.log('dataInJs ===', dataInJs);
 
   if (dataInJs === 'Bill add') {
     errroEl.textContent = '';
