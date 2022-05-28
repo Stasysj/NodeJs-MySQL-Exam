@@ -3,9 +3,9 @@ const { getGroupsdDB, postGroupsDB } = require('../model/groupModules');
 // ---------------------------------------
 async function getGroups(req, res) {
   try {
-    console.log('vadega', req.userId);
+    // console.log('vadega', req.userId);
     const getGroupsSelect = await getGroupsdDB(req.userId);
-    console.log(getGroupsSelect);
+    // console.log('antras masyvas', getGroupsSelect);
     res.json(getGroupsSelect);
   } catch (error) {
     console.log('Get getGroups error ===', error);

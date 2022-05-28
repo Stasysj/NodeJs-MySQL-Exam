@@ -17,22 +17,24 @@ const contentEl = document.querySelector('.form-group');
 console.log('token ===', token);
 
 // ------------------------------- Select pasleptas
-divFormEl.addEventListener('click', addMeniu);
+
 function addMeniu() {
   console.log('click');
   formEl.classList = 'see-form';
   addGroupTitlePEl.textContent = 'Select group';
   divFormEl.removeEventListener('click', addMeniu);
 }
+divFormEl.addEventListener('click', addMeniu);
 // --------------------------------
 // ------------------------------- Add Inputas pasleptas
-divNewFormEl.addEventListener('click', addNewMeniu);
+
 function addNewMeniu() {
   console.log('click');
   formNewEl.classList = 'see-form';
   addGroupTitleNewPEl.textContent = 'Input new group name.';
   divNewFormEl.removeEventListener('click', addMeniu);
 }
+divNewFormEl.addEventListener('click', addNewMeniu);
 // --------------------------------
 
 function creatEl(tag, text, clas, dest, val) {
@@ -60,6 +62,7 @@ function renderCards(arr, dest) {
 
 async function getGroups(userToken) {
   const groupsArr = await getFetch('accounts', userToken);
+  // ------------------------------------------------------------------------------------
   console.log('groupsArr ===', groupsArr);
   if (!Array.isArray(groupsArr)) {
     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
@@ -85,7 +88,31 @@ const selectEl = document.querySelector('.group-select');
 
 async function addSelectValues(userToken) {
   const allGroupsArr = await getFetch('groups', userToken);
+  // -----------------------------------------------------------
+  const groupsFiltrArr = await getFetch('accounts', userToken);
+  const allGroupsArrs = groupsFiltrArr.map((obj) => {
+    return {
+      id: obj.id,
+      name: obj.name,
+    };
+  });
+  console.log('aarr po mapo', allGroupsArrs);
+  let rezai = [];
+  function diffArray2(arr1, arr2) {
+    console.log('arrr pirmas ir antras ciklo pradzioj', arr1, arr2);
+    arr1.forEach((obj1) => {
+      arr2.forEach((obj2) => {
+        if (obj1.id !== obj2.id) {
+          rezai.push(obj1);
+        }
+      });
+    });
+  }
+  diffArray2(allGroupsArr, allGroupsArrs);
+  console.log('pergale', rezai);
+  // -----------------------------------------------------------------------------------
   console.log(allGroupsArr);
+  console.log(groupsFiltrArr);
   if (!Array.isArray(allGroupsArr)) {
     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
     window.location.href = 'login.html';
@@ -112,12 +139,13 @@ function handleError(msg, bullian) {
   errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
+    if (!bullian === false) {
+      contentEl.classList.add('good-input-content');
+    } else {
+      contentEl.classList.add('invalid-input-content');
+    }
   }
-  if (!bullian === false) {
-    contentEl.classList.add('good-input-content');
-  } else {
-    contentEl.classList.add('invalid-input-content');
-  }
+
   if (Array.isArray(msg)) {
     msg.forEach((eObj) => {
       const elWithError = formEl.elements[eObj.field];
@@ -187,7 +215,7 @@ formEl.addEventListener('submit', (e) => {
   postFetch(groupObj.group_id);
 });
 // -------------------------------------------------------------
-// --------------------------------------------------------------EXTRA 2 prideda nauja grupe 
+// --------------------------------------------------------------EXTRA 2 prideda nauja grupe
 async function postFetchregister(name) {
   const groupObj = { name };
   //   console.log(billObj);

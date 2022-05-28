@@ -28,12 +28,13 @@ function handleError(msg, bullian) {
   errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
+    if (!bullian === false) {
+      contentEl.classList.add('good-input-content');
+    } else {
+      contentEl.classList.add('invalid-input-content');
+    }
   }
-  if (!bullian === false) {
-    contentEl.classList.add('good-input-content');
-  } else {
-    contentEl.classList.add('invalid-input-content');
-  }
+
   if (Array.isArray(msg)) {
     msg.forEach((eObj) => {
       const elWithError = formEl.elements[eObj.field];
@@ -44,18 +45,18 @@ function handleError(msg, bullian) {
   }
 }
 // ---------------------------------------------------------------
-// emailEl.addEventListener('input', (event) => {
-//   clearErrors();
-//   const el = event.currentTarget;
-//   checkInput(el.value, el.name, ['required', 'minLength-4', 'email', 'include-@']);
-//   handleError(errorsArr);
-// });
-// passEl.addEventListener('input', (event) => {
-//   clearErrors();
-//   const el = event.currentTarget;
-//   checkInput(el.value, el.name, ['required', 'minLength-5', 'maxLength-10']);
-//   handleError(errorsArr);
-// });
+emailEl.addEventListener('input', (event) => {
+  clearErrors();
+  const el = event.currentTarget;
+  checkInput(el.value, el.name, ['required', 'minLength-4', 'email', 'include-@']);
+  handleError(errorsArr);
+});
+passEl.addEventListener('input', (event) => {
+  clearErrors();
+  const el = event.currentTarget;
+  checkInput(el.value, el.name, ['required', 'minLength-5', 'maxLength-10']);
+  handleError(errorsArr);
+});
 // ------------------------------------------------------
 async function loginFetch(email, password) {
   const loginObj = { email, password };

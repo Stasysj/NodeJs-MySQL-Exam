@@ -25,12 +25,13 @@ function handleError(msg, bullian) {
   errroEl.textContent = '';
   if (typeof msg === 'string') {
     errroEl.textContent = msg;
+    if (!bullian === false) {
+      contentEl.classList.add('good-input-content');
+    } else {
+      contentEl.classList.add('invalid-input-content');
+    }
   }
-  if (!bullian === false) {
-    contentEl.classList.add('good-input-content');
-  } else {
-    contentEl.classList.add('invalid-input-content');
-  }
+  
   if (Array.isArray(msg)) {
     msg.forEach((eObj) => {
       const elWithError = formEl.elements[eObj.field];
@@ -46,6 +47,7 @@ fullNameEl.addEventListener('input', (event) => {
   const el = event.currentTarget;
   checkInput(el.value, el.name, ['required', 'minLength-2', 'maxLength-15']);
   handleError(errorsArr);
+  
 });
 passEl.addEventListener('input', (event) => {
   clearErrors();
