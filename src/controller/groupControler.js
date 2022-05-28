@@ -15,6 +15,7 @@ async function getGroups(req, res) {
 // ----------------------------------------
 async function postGroups(req, res) {
   const { name } = req.body;
+  
   //   const tokenFromHeaders = req.headers.authorization.split(' ')[1];
   //   const idfromToken = req.userId;
   //   console.log(group_id, user_id, tokenFromHeaders);

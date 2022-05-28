@@ -1,7 +1,6 @@
 
 GET http://localhost:3000/api/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3NjMwOTYsImV4cCI6MTY1Mzc2NjY5Nn0.x4ujjPEvpMXaHFnXKwJiEUvDDVqBd2YKyyyE2ZgIDH0
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3Njg3NjEsImV4cCI6MTY1Mzc3MjM2MX0.TEDpcHh9fGXfovnHjwVR23fUr8HJqpIFOC9V_ax05ss
 ###----------------------------/register
 
 POST http://localhost:3000/api/register
@@ -40,7 +39,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhd
 
 ###---------------------get aCCOUNT
 GET http://localhost:3000/api/accounts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzYzMTQxMiwiZXhwIjoxNjUzNjM1MDEyfQ.daUF22rNvk4zWzkQ2IgKaR4NDHNPRwL9L9nXJjIZ_i4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3Njg3NjEsImV4cCI6MTY1Mzc3MjM2MX0.TEDpcHh9fGXfovnHjwVR23fUr8HJqpIFOC9V_ax05ss
 
 ###-------------------------get /bills/:group_id
 GET http://localhost:3000/api/bills/2
@@ -59,17 +58,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhd
         
   }
 
-###------------------------GET group
+###------------------------GET group selecto?
 GET http://localhost:3000/api/groups
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3NjMwOTYsImV4cCI6MTY1Mzc2NjY5Nn0.x4ujjPEvpMXaHFnXKwJiEUvDDVqBd2YKyyyE2ZgIDH0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3Njg3NjEsImV4cCI6MTY1Mzc3MjM2MX0.TEDpcHh9fGXfovnHjwVR23fUr8HJqpIFOC9V_ax05ss
 
 
 ###------------------------POSt group
 POST http://localhost:3000/api/groups
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsImlhdCI6MTY1MzY3MjQ1MCwiZXhwIjoxNjUzNjc2MDUwfQ.5x8yj4YduEdz23pJVERaUYEMkV6SEwEmYz8YKte0sqc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI1LCJpYXQiOjE2NTM3NjMwOTYsImV4cCI6MTY1Mzc2NjY5Nn0.x4ujjPEvpMXaHFnXKwJiEUvDDVqBd2YKyyyE2ZgIDH0
 
 {
     
-    "name": "Trip to Palanga"
+    "name": "Trip to Ryga"
   }

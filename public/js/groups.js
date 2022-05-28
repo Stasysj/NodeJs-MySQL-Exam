@@ -71,7 +71,7 @@ async function getGroups(userToken) {
 
 getGroups(token);
 
-// -------------------------------------------------extra
+// -------------------------------------------------extra selecto kurimas
 function renderSelect(arr, dest) {
   dest.innerHTML = '';
   arr.forEach((obj) => {
@@ -94,8 +94,8 @@ async function addSelectValues(userToken) {
 }
 
 addSelectValues(token);
-// ------------------------------------
-// ------------------------------------
+// ---------------------------------------------------- end selecto padarymas
+// ----------------------------------------------------
 function clearErrors() {
   // errorsArr = [];
   clearErrorsArr();
@@ -131,7 +131,7 @@ function handleError(msg, bullian) {
 // ----------------------------------
 async function postFetch(group_id) {
   const groupObj = { group_id };
-  //   console.log(billObj);
+  console.log('assign grupe', groupObj);
   const resp = await fetch(`${BASE_URL}/accounts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -187,7 +187,7 @@ formEl.addEventListener('submit', (e) => {
   postFetch(groupObj.group_id);
 });
 // -------------------------------------------------------------
-// --------------------------------------------------------------EXTRA
+// --------------------------------------------------------------EXTRA 2 prideda nauja grupe 
 async function postFetchregister(name) {
   const groupObj = { name };
   //   console.log(billObj);

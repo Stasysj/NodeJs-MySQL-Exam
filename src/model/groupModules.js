@@ -15,9 +15,9 @@ async function executeDb(sql, dataToDbArr) {
     conn?.end();
   }
 }
-
+// ----------------------------------selecto padarymas uzpildymas
 function getGroupsdDB(user_id) {
-  const sql = 'SELECT DISTINCT groups.name FROM groups LEFT JOIN accounts ON groups.id=accounts.group_id WHERE  NOT(user_id = ? )';
+  const sql = 'SELECT * from groups ';
   return executeDb(sql, [user_id]);
 }
 
