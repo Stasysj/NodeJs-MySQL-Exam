@@ -16,11 +16,17 @@ async function executeDb(sql, dataToDbArr) {
   }
 }
 
-function getGroupsdDB() {
-  const sql = 'SELECT * FROM groups ';
-  return executeDb(sql, []);
+function getGroupsdDB(user_id) {
+  const sql = 'SELECT DISTINCT groups.name FROM groups LEFT JOIN accounts ON groups.id=accounts.group_id WHERE  NOT(user_id = ? )';
+  return executeDb(sql, [user_id]);
+}
+
+function postGroupsDB(name) {
+  const sql = 'INSERT INTO groups (name) VALUES (?)';
+  return executeDb(sql, [name]);
 }
 // ---------------------------
 module.exports = {
   getGroupsdDB,
+  postGroupsDB,
 };

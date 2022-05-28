@@ -13,6 +13,10 @@ const billTitleEl = document.querySelector('.title');
 const divFormEl = document.querySelector('.form');
 const addBilTitlePEl = document.querySelector('.addmenu');
 console.log('token ===', token);
+if (window.location.href==='http://127.0.0.1:5500/public/bills.html'){
+    alert('pasirinkite grupe');
+    window.location.replace('groups.html')
+}
 
 const cardName = window.location.href.split('+')[1].split('%20').join(' ');
 billTitleEl.textContent = cardName;

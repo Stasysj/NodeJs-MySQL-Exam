@@ -143,32 +143,34 @@ button {
   margin-top: 10px;
 }
 /* --------------------------------------------------------Bills css */
-#group{
-  display: none;
-
-}
-
-.form{
+#group,
+#group-new {
   display: none;
 }
-#group.see-form{
-    display: block;
-    
+
+.form {
+  display: none;
 }
-.see-form{
+#group.see-form,
+#group-new.see-form {
   display: block;
 }
-.addtitle{
+.see-form {
+  display: block;
+}
+.addtitle,
+.addtitle-new {
   font-size: 12px;
-  
   text-decoration: underline;
 }
-.addmenu{
+.addmenu {
   margin-top: 10px;
   font-size: 10px;
   text-decoration: underline;
 }
-.addmenu:hover, .addtitle:hover{
+.addmenu:hover,
+.addtitle:hover,
+.addtitle-new:hover {
   cursor: pointer;
 }
 .bills-content {
@@ -207,10 +209,10 @@ table {
 th {
   border-bottom: 1px solid rgba(40, 41, 43, 0.774);
   background-color: rgba(88, 101, 114, 0.562);
-  color: var(--main-color)
+  color: var(--main-color);
 }
 
-td{
+td {
   color: white;
 }
 th,
@@ -219,7 +221,6 @@ td {
   padding: 8px;
   text-align: center;
   border-bottom: 1px solid rgba(193, 198, 207, 0.774);
-  
 }
 
 tr:nth-child(even) {
@@ -252,8 +253,8 @@ tr:nth-child(even) {
   margin-bottom: 15px;
 }
 /* -------------------------------extra */
-.form-group{
-  
+.form-group,
+.form-group-new {
   max-width: 800px;
   width: 200px;
   margin: 15px auto;
@@ -265,5 +266,10 @@ tr:nth-child(even) {
   text-align: center;
   /* position: relative;
     height: 400px; */
-
+}
+.form-group.invalid-input-content {
+  background-color: rgba(211, 159, 150, 0.774);
+}
+.form-group.good-input-content {
+  background-color: rgba(20, 192, 43, 0.774);
 }

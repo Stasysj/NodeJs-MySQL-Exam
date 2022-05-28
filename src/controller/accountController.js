@@ -11,7 +11,7 @@ async function addUserToAccount(req, res) {
   try {
     const saveResult = await addUserAccountDB(group_id, idfromToken);
     if (saveResult.affectedRows === 1) {
-      res.sendStatus(201);
+      res.status(201).json('Account add');
       return;
     }
     res.status(400).json('Accountas nepridetas');

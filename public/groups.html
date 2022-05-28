@@ -25,15 +25,21 @@
         <div class="group_container"></div>
       </main>
       <div class="form-group">
-        <p class="addtitle">Click to add new Group.</p>
+        <p class="addtitle">Click to assign new Group.</p>
         <form id="group">
           <p id="err"></p>
-          <select class="group-select" name="cars" id="cars">
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <select class="group-select" name="cars" id="cars"></select>
           <!-- <input type="text" name="description" placeholder="Group" /> -->
+          <p class="error-msg"></p>
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <div class="form-group-new">
+        <p class="addtitle-new">Click to add new Group.</p>
+        <form id="group-new">
+          <p id="err"></p>
+          <!-- <select class="group-select" name="cars" id="cars"></select> -->
+          <input type="text" name="newGroup" placeholder="New group" />
           <p class="error-msg"></p>
           <button type="submit">Add</button>
         </form>
