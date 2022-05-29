@@ -13,5 +13,3 @@ export async function getFetch(endpoint, token) {
     console.warn('erro in getFetch', error);
   }
 }
-// -----------------------------------------------
-// export async function postFetch(endpoint, data) {}

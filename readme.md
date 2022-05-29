@@ -14,7 +14,7 @@
 - serverio (back-end),
 - klientinės dalies (front-end).
 
-----
+---
 
 #### Duomenų bazė turi 4 lenteles su skliausteliuose nurodytais stulpeliais:
 
@@ -23,9 +23,9 @@
 - bills (id, group_id, amount, description); - atskira lentele išlaidoms kuria susiesime su grupėmis;
 - accounts (id, group_id, user_id) <- ši lentelė skirta žinoti kokioms grupėms priklauso kiekvienas vartotojas.
 
-`Duomenų bazės pavyzdinis sql pridedamas  **node.sql** faile.`
+`Duomenų bazės pavyzdinis sql pridedamas  **db.sql** faile.`
 
-----
+---
 
 `Back-end'o paleidimas`
 

@@ -63,7 +63,6 @@ passReEl.addEventListener('input', (event) => {
 // ----------------------------------------------------
 async function registerFetch(full_name, email, password) {
   const registerObj = { full_name, email, password };
-  console.log(registerObj);
   const resp = await fetch(`${baseUrl}/register`, {
     method: 'POST',
     headers: {
@@ -74,12 +73,11 @@ async function registerFetch(full_name, email, password) {
   if (resp.status === 201) {
     // success
     handleError('registration successful', true);
-    alert('registration successful')
-    window.location.replace('login.html')
+    alert('registration successful');
+    window.location.replace('login.html');
   } else {
     // fail
     const res = await resp.json();
-    console.log(res);
     handleError(res);
   }
 }
@@ -103,9 +101,7 @@ formEl.addEventListener('submit', async (event) => {
   checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
   checkInput(regObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
   checkInput(regObj.repPassword, 'repeat_password', ['required', 'minLength-5', 'maxLength-10']);
-  console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
-  // jei yra klaidu FE tada nesiunciam uzklausos
   if (errorsArr.length) {
     handleError(errorsArr);
     return;

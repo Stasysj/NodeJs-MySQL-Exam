@@ -1,5 +1,5 @@
 import { BASE_URL, getFetch } from './modules/fetch.js';
-import { checkInput, clearErrorsArr, errorsArr } from './modules/validations.js';
+import { clearErrorsArr } from './modules/validations.js';
 
 const groupContEl = document.querySelector('.group_container');
 const divFormEl = document.querySelector('.form-group');
@@ -9,31 +9,25 @@ const addGroupTitleNewPEl = document.querySelector('.addtitle-new');
 const formEl = document.getElementById('group');
 const formNewEl = document.getElementById('group-new');
 const token = localStorage.getItem('Token');
-const btnEl = document.querySelector('button');
 const selectValEl = document.querySelector('.group-select');
 const errroEl = document.getElementById('err');
-const errroNewEl = document.getElementById('err-new');
 const errorMsgElementsArr = document.querySelectorAll('.error-msg');
 const contentEl = document.querySelector('.form-group');
-console.log('token ===', token);
 
 // ------------------------------- Select pasleptas
 
 function addMeniu() {
-  console.log('click');
   formEl.classList = 'see-form';
   addGroupTitlePEl.textContent = 'Select group';
   divFormEl.removeEventListener('click', addMeniu);
 }
 divFormEl.addEventListener('click', addMeniu);
-// --------------------------------
+
 // ------------------------------- Add Inputas pasleptas
 
 function addNewMeniu() {
   contentEl.classList.remove('good-input-content');
   errroEl.textContent = '';
-  // formEl.classList.remove('see-form');
-  console.log('click');
   formNewEl.classList = 'see-form';
   addGroupTitleNewPEl.textContent = 'Input new group name.';
   divNewFormEl.removeEventListener('click', addMeniu);
@@ -57,22 +51,17 @@ function renderCards(arr, dest) {
     creatEl('h3', `ID: ${obj.group_id}`, 'group-card-id', groupCardEl);
     creatEl('p', obj.name, 'group-card-title', groupCardEl);
     groupCardEl.addEventListener('click', () => {
-      console.log('group id', obj.group_id);
       window.location.href = `bills.html?group_id=${obj.group_id}+${obj.name}`;
     });
-    // dest.append();
   });
 }
 
 async function getGroups(userToken) {
   const groupsArr = await getFetch('accounts', userToken);
-  // ------------------------------------------------------------------------------------
-  console.log('groupsArr ===', groupsArr);
   if (!Array.isArray(groupsArr)) {
     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
     window.location.href = 'login.html';
   }
-
   renderCards(groupsArr, groupContEl);
 }
 
@@ -83,8 +72,6 @@ function renderSelect(arr, dest) {
   dest.innerHTML = '';
   arr.forEach((obj) => {
     creatEl('option', obj.name, '', dest, obj.id);
-
-    // dest.append();
   });
 }
 
@@ -92,31 +79,6 @@ const selectEl = document.querySelector('.group-select');
 
 async function addSelectValues(userToken) {
   const allGroupsArr = await getFetch('groups', userToken);
-  // -----------------------------------------------------------
-  // const groupsFiltrArr = await getFetch('accounts', userToken);
-  // const allGroupsArrs = groupsFiltrArr.map((obj) => {
-  //   return {
-  //     id: obj.id,
-  //     name: obj.name,
-  //   };
-  // });
-  // console.log('aarr po mapo', allGroupsArrs);
-  // let rezai = [];
-  // function diffArray2(arr1, arr2) {
-  //   console.log('arrr pirmas ir antras ciklo pradzioj', arr1, arr2);
-  //   arr1.forEach((obj1) => {
-  //     arr2.forEach((obj2) => {
-  //       if (obj1.id !== obj2.id) {
-  //         rezai.push(obj1);
-  //       }
-  //     });
-  //   });
-  // }
-  // diffArray2(allGroupsArr, allGroupsArrs);
-  // console.log('pergale', rezai);
-  // // -----------------------------------------------------------------------------------
-  // console.log(allGroupsArr);
-  // console.log(groupsFiltrArr);
   if (!Array.isArray(allGroupsArr)) {
     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
     window.location.href = 'login.html';
@@ -126,7 +88,7 @@ async function addSelectValues(userToken) {
 
 addSelectValues(token);
 // ---------------------------------------------------- end selecto padarymas
-// ----------------------------------------------------
+
 function clearErrors() {
   // errorsArr = [];
   clearErrorsArr();
@@ -163,27 +125,16 @@ function handleError(msg, bullian) {
 // ----------------------------------
 async function postFetch(group_id) {
   const groupObj = { group_id };
-  console.log('assign grupe', groupObj);
   const resp = await fetch(`${BASE_URL}/accounts`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(groupObj),
   });
   const dataInJs = await resp.json();
-  console.log('dataInJs ===', dataInJs);
 
   if (dataInJs === 'Account add') {
     errroEl.textContent = '';
-    // console.log('Bill add');
-    // formEl.elements.amount.value = '';
-    // formEl.elements.description.value = '';
     getGroups(token);
-    // handleError('Account add', true);
-
-    // const { token } = dataInJs;
-    // localStorage.setItem('Token', token);
-
-    // window.location.replace('groups.html');
   } else if (dataInJs.error === 'invalid token') {
     clearErrors();
     handleError('Invalid token', false);
@@ -199,51 +150,25 @@ async function postFetch(group_id) {
 
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(selectValEl.value);
 
   const groupObj = {
     group_id: selectValEl.value,
   };
-  //   console.log('billObj ===', billObj);
-  // ------------------------------------------------
-  //   clearErrors();
-  //   checkInput(billObj.amount, 'amount', ['required', 'positive']);
-  //   checkInput(billObj.description, 'description', ['required', 'minLength-5', 'maxLength-48']);
-  //   console.log('FE errorsArr ===', errorsArr);
-  // --------------------------------------------------
-  // jei yra klaidu FE tada nesiunciam uzklausos
-  //   if (errorsArr.length) {
-  //     handleError(errorsArr);
-  //     return;
-  //   }
   postFetch(groupObj.group_id);
 });
-// -------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------EXTRA 2 prideda nauja grupe
+// ----------------------------------------------------------EXTRA 2 prideda nauja grupe
 
 async function postFetchregister(name) {
   const groupObj = { name };
-  //   console.log(billObj);
   const resp = await fetch(`${BASE_URL}/groups`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
     body: JSON.stringify(groupObj),
   });
   const dataInJs = await resp.json();
-  console.log('dataInJs ===', dataInJs);
-
   if (dataInJs === 'Group add') {
     errroEl.textContent = '';
-    // console.log('Bill add');
-    // formEl.elements.amount.value = '';
-    // formEl.elements.description.value = '';
     addSelectValues(token);
-    // handleErrorNew('Group add', true);
-
-    // const { token } = dataInJs;
-    // localStorage.setItem('Token', token);
-    // divNewFormEl.classList.add('good-input-content')
-    // window.location.replace('groups.html');
   } else if (dataInJs.error === 'invalid token') {
     clearErrors();
     handleError('Invalid token', false);
@@ -251,27 +176,13 @@ async function postFetchregister(name) {
     window.location.href = 'login.html';
   } else {
     clearErrors();
-    // handleError('Account dnot add', false);
   }
 }
-
 // -------------------------------------------------------------
 
 formNewEl.addEventListener('submit', (e) => {
   e.preventDefault();
   const addNewGroupObj = { name: formNewEl.elements.newGroup.value };
-  //   console.log(formNewEl.elements.newGroup.value);
-  //   console.log('billObj ===', billObj);
-  // ------------------------------------------------
-  //   clearErrors();
-  //   checkInput(addNewGroupObj.name, 'newGroup', ['required', 'minLength-5', 'maxLength-15']);
-  //   console.log('FE errorsArr ===', errorsArr);
-  // --------------------------------------------------
-  //   jei yra klaidu FE tada nesiunciam uzklausos
-  //   if (errorsArr.length) {
-  //     handleError(errorsArr);
-  //     return;
-  //   }
   formNewEl.classList.remove('see-form');
   postFetchregister(addNewGroupObj.name);
   formNewEl.elements.newGroup.value = '';

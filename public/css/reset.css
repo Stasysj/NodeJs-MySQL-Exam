@@ -6,12 +6,8 @@ body {
   height: 100vh;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
     Verdana, sans-serif;
-  /* color: #889096; */
 }
-/* a {
-  text-decoration: none;
-  color: inherit;
-} */
+
 ul,
 ol {
   list-style: none;
@@ -20,9 +16,7 @@ ol {
 img {
   max-width: 100%;
 }
-input{
-  
-}
+
 p,
 h1,
 h2,

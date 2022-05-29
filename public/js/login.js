@@ -68,11 +68,9 @@ async function loginFetch(email, password) {
     body: JSON.stringify(loginObj),
   });
   const dataInJs = await resp.json();
-  console.log('dataInJs ===', dataInJs);
 
   if (dataInJs.success === true) {
     errroEl.textContent = '';
-    console.log('login success');
     formEl.elements.email.value = '';
     formEl.elements.password.value = '';
     handleError('login success', true);
@@ -82,7 +80,6 @@ async function loginFetch(email, password) {
 
     window.location.replace('groups.html');
   } else {
-    console.log('login fail');
     clearErrors();
     handleError(dataInJs, false);
   }
@@ -94,12 +91,10 @@ formEl.addEventListener('submit', async (event) => {
     email: formEl.elements.email.value.trim(),
     password: formEl.elements.password.value.trim(),
   };
-  console.log('loginObj ===', loginObj);
   // ------------------------------------------------
   clearErrors();
   checkInput(loginObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
   checkInput(loginObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);
-  console.log('FE errorsArr ===', errorsArr);
   // --------------------------------------------------
   // jei yra klaidu FE tada nesiunciam uzklausos
   if (errorsArr.length) {

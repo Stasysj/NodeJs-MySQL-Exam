@@ -3,8 +3,6 @@
 :root {
   --main-color: rgba(200, 155, 106, 0.925);
 }
-body {
-}
 
 h1 {
   color: var(--main-color);
@@ -18,13 +16,11 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-color: rgba(88, 101, 114, 0.562);
-  /* background: local; */
 }
 
 nav {
   background-color: rgba(60, 64, 68, 0.562);
   border-bottom: 1px solid rgba(40, 41, 43, 0.774);
-  color: snow;
   margin-bottom: 20px;
 }
 .navLink {
@@ -35,7 +31,6 @@ nav {
   display: inline-block;
 }
 .navLink.active {
-  /* font-weight: bold; */
   text-decoration: underline;
   color: rgb(198, 198, 198);
   background-color: rgb(103, 103, 103);
@@ -47,10 +42,7 @@ nav {
   padding: 30px 20px;
   background-color: rgba(88, 101, 114, 0.562);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   transition: 0.2s ease;
-  /* position: relative;
-    height: 400px; */
 }
 .title {
   color: var(--main-color);
@@ -80,7 +72,6 @@ input {
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(40, 41, 43, 0.774);
-  /* transition: 0.2s ease; */
   border-radius: 2px;
   background-color: rgba(60, 64, 68, 0);
   color: white;
@@ -93,7 +84,6 @@ button {
   width: 50%;
   border: none;
   border-radius: 2px;
-  /* transition: 2s ease; */
   height: 32px;
   background-color: rgba(40, 41, 43, 0.774);
   color: white;
@@ -109,34 +99,25 @@ button {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 15px;
   margin-top: 25px;
-  /* background-color: aqua; */
 }
 
 .group-card {
   background-color: rgba(255, 255, 255, 0.514);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   text-align: center;
   padding: 15px;
 }
 .group-content {
   max-width: 800px;
-  /* width: 300px; */
   margin: auto auto;
   padding: 30px 20px;
   background-color: rgba(88, 101, 114, 0.562);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   transition: 0.2s ease;
-  /* position: relative;
-    height: 400px; */
 }
 .group-card:hover {
   background-color: var(--main-color);
-  /* box-shadow: 0 2px 4px rgba(153, 153, 153, 0.6); */
   cursor: pointer;
-
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
 }
 .group-card-title {
   font-size: 12px;
@@ -175,19 +156,12 @@ button {
 }
 .bills-content {
   max-width: 800px;
-  /* width: 300px; */
   margin: auto auto;
   padding: 30px 20px;
   background-color: rgba(88, 101, 114, 0.562);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   transition: 0.2s ease;
-  /* position: relative;
-    height: 400px; */
 }
-/* #textarea::placeholder {
-  color: rgb(255, 11, 11);
-} */
 
 /* --------------------------------------------Table */
 
@@ -196,15 +170,11 @@ table {
   width: 100%;
 
   max-width: 800px;
-  /* width: 300px; */
   margin: 25px auto;
   padding: 30px 20px;
   background-color: rgba(88, 101, 114, 0.562);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   transition: 0.2s ease;
-  /* position: relative;
-      height: 400px; */
 }
 th {
   border-bottom: 1px solid rgba(40, 41, 43, 0.774);
@@ -223,9 +193,6 @@ td {
   border-bottom: 1px solid rgba(193, 198, 207, 0.774);
 }
 
-tr:nth-child(even) {
-  /* background-color: #f2f2f2;s */
-}
 /* -------------------------------------validation */
 .error-msg,
 #err {
@@ -236,11 +203,9 @@ tr:nth-child(even) {
 }
 .invalid-input {
   border-bottom: 2px solid tomato;
-  /* background-color: rgb(255, 207, 199); */
   background-color: white;
   color: black;
 }
-
 
 .invalid-input-content {
   background-color: rgba(211, 159, 150, 0.774);
@@ -262,11 +227,8 @@ tr:nth-child(even) {
   padding: 10px 10px;
   background-color: rgba(116, 127, 138, 0.87);
   box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
-  /* border: 1px solid rgba(40, 41, 43, 0.774); */
   transition: 0.2s ease;
   text-align: center;
-  /* position: relative;
-    height: 400px; */
 }
 .form-group.invalid-input-content {
   background-color: rgba(211, 159, 150, 0.774);

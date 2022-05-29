@@ -26,7 +26,7 @@ function checkMinLength(value, minLength, field) {
 }
 
 // --------------------------------------------------------------------
-// rules ['required', 'minLength-4']
+
 export function checkInput(valueToCheck, field, rulesArr) {
   // eslint-disable-next-line no-restricted-syntax
   for (const rule of rulesArr) {
@@ -36,21 +36,7 @@ export function checkInput(valueToCheck, field, rulesArr) {
         return;
       }
     }
-
-    // ------------------------------------------ extra ar yra '.' po @ raide
-    // if (rule.split('-')[0] === 'include') {
-    //   const check = rule.split('-')[1];
-
-    //   const arr2simbol = valueToCheck
-    //     .split('')
-    //     .filter((simbol) => simbol === '@' || simbol === '.');
-    //   console.log(valueToCheck.split(''));
-    //   console.log(arr2simbol);
-    //   if (valueToCheck.includes(check) === false) {
-    //     addError(`email should include ${check}`, field);
-    //   }
-    // }
-    // -------------------------------------------@
+    // rule===@
     if (rule.split('-')[0] === 'include') {
       const check = rule.split('-')[1];
 
@@ -72,14 +58,12 @@ export function checkInput(valueToCheck, field, rulesArr) {
         addError(`Too long. Length must be less than ${max}`, field);
       }
     }
+    // ruke===positive
     if (rule === 'positive') {
       if (valueToCheck < 0) {
         addError('must be positive', field);
         return;
       }
     }
-
-    // rule ===  email tikrinam ar yra @ raide
-    //
   }
 }

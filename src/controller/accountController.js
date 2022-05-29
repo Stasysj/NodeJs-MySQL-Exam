@@ -6,8 +6,6 @@ async function addUserToAccount(req, res) {
   const { group_id, user_id } = req.body;
   const tokenFromHeaders = req.headers.authorization.split(' ')[1];
   const idfromToken = req.userId;
-  console.log(group_id, user_id, tokenFromHeaders);
-  console.log('idfromtoken', idfromToken);
   try {
     const saveResult = await addUserAccountDB(group_id, idfromToken);
     if (saveResult.affectedRows === 1) {

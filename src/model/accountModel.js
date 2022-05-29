@@ -7,7 +7,6 @@ async function executeDb(sql, dataToDbArr) {
   try {
     conn = await mysql.createConnection(dbConfig);
     const [result] = await conn.execute(sql, dataToDbArr);
-    console.log('Getas visu grupsu pagal id)', result);
     return result;
   } catch (error) {
     console.log('error executeDb', error);
