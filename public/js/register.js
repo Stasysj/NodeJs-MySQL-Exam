@@ -31,7 +31,7 @@ function handleError(msg, bullian) {
       contentEl.classList.add('invalid-input-content');
     }
   }
-  
+
   if (Array.isArray(msg)) {
     msg.forEach((eObj) => {
       const elWithError = formEl.elements[eObj.field];
@@ -45,9 +45,8 @@ function handleError(msg, bullian) {
 fullNameEl.addEventListener('input', (event) => {
   clearErrors();
   const el = event.currentTarget;
-  checkInput(el.value, el.name, ['required', 'minLength-2', 'maxLength-15']);
+  checkInput(el.value, el.name, ['required', 'minLength-2', 'maxLength-30']);
   handleError(errorsArr);
-  
 });
 passEl.addEventListener('input', (event) => {
   clearErrors();
@@ -75,6 +74,8 @@ async function registerFetch(full_name, email, password) {
   if (resp.status === 201) {
     // success
     handleError('registration successful', true);
+    alert('registration successful')
+    window.location.replace('login.html')
   } else {
     // fail
     const res = await resp.json();
@@ -97,7 +98,7 @@ formEl.addEventListener('submit', async (event) => {
     return;
   }
   clearErrors();
-  checkInput(regObj.full_name, 'full_name', ['required', 'minLength-2', 'maxLength-15']);
+  checkInput(regObj.full_name, 'full_name', ['required', 'minLength-2', 'maxLength-30']);
 
   checkInput(regObj.email, 'email', ['required', 'minLength-4', 'email', 'include-@.']);
   checkInput(regObj.password, 'password', ['required', 'minLength-5', 'maxLength-10']);

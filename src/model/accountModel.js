@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 const { dbConfig } = require('../config');
 
-// -------------------------------
+// -----------------------------------------------
 async function executeDb(sql, dataToDbArr) {
   let conn;
   try {
@@ -16,7 +16,7 @@ async function executeDb(sql, dataToDbArr) {
     conn?.end();
   }
 }
-
+// -----------------------------------------------
 function addUserAccountDB(group_id, user_id) {
   const sql = 'INSERT INTO accounts (group_id, user_id) VALUES (?, ?)';
   return executeDb(sql, [group_id, user_id]);

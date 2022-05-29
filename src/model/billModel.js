@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 const { dbConfig } = require('../config');
 
-// ------------------------------------
+// ---------------------------------------------
 async function executeDb(sql, dataToDbArr) {
   let conn;
   try {
@@ -15,7 +15,7 @@ async function executeDb(sql, dataToDbArr) {
     conn?.end();
   }
 }
-
+// -------------------------------------------
 function getBillbyGroupIdDB(group_id) {
   const sql = 'SELECT * FROM bills WHERE group_id=?';
   return executeDb(sql, [group_id]);

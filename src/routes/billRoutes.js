@@ -7,7 +7,7 @@ const billRoutes = express.Router();
 
 // -------------------------------------
 billRoutes.get('/bills/:group_id', validateToken, getBillbyGroupId);
-// -------------------------------------
+
 billRoutes.post('/bills', validateToken, addBill);
 // -------------------------------------
 module.exports = billRoutes;

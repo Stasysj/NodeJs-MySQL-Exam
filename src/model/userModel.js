@@ -16,7 +16,7 @@ async function executeDb(sql, dataToDbArr) {
     conn?.end();
   }
 }
-
+// ---------------------------------------------
 function getAllUsersDB() {
   const sql = 'SELECT * FROM users';
   return executeDb(sql, []);

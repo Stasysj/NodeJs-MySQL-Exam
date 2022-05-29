@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+// ----------------------------------------------
 const dbConfig = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -8,11 +8,9 @@ const dbConfig = {
   database: process.env.DB_DB,
 };
 
-// console.log('dbConfig ===', dbConfig);
-
 const PORT = +process.env.SERVER_PORT || 5000;
 const jwtSecret = process.env.JWT_SECRET;
-
+// -------------------------------------------
 module.exports = {
   dbConfig,
   PORT,

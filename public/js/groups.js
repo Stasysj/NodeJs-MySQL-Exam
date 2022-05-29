@@ -12,6 +12,7 @@ const token = localStorage.getItem('Token');
 const btnEl = document.querySelector('button');
 const selectValEl = document.querySelector('.group-select');
 const errroEl = document.getElementById('err');
+const errroNewEl = document.getElementById('err-new');
 const errorMsgElementsArr = document.querySelectorAll('.error-msg');
 const contentEl = document.querySelector('.form-group');
 console.log('token ===', token);
@@ -29,6 +30,9 @@ divFormEl.addEventListener('click', addMeniu);
 // ------------------------------- Add Inputas pasleptas
 
 function addNewMeniu() {
+  contentEl.classList.remove('good-input-content');
+  errroEl.textContent = '';
+  // formEl.classList.remove('see-form');
   console.log('click');
   formNewEl.classList = 'see-form';
   addGroupTitleNewPEl.textContent = 'Input new group name.';
@@ -89,30 +93,30 @@ const selectEl = document.querySelector('.group-select');
 async function addSelectValues(userToken) {
   const allGroupsArr = await getFetch('groups', userToken);
   // -----------------------------------------------------------
-  const groupsFiltrArr = await getFetch('accounts', userToken);
-  const allGroupsArrs = groupsFiltrArr.map((obj) => {
-    return {
-      id: obj.id,
-      name: obj.name,
-    };
-  });
-  console.log('aarr po mapo', allGroupsArrs);
-  let rezai = [];
-  function diffArray2(arr1, arr2) {
-    console.log('arrr pirmas ir antras ciklo pradzioj', arr1, arr2);
-    arr1.forEach((obj1) => {
-      arr2.forEach((obj2) => {
-        if (obj1.id !== obj2.id) {
-          rezai.push(obj1);
-        }
-      });
-    });
-  }
-  diffArray2(allGroupsArr, allGroupsArrs);
-  console.log('pergale', rezai);
-  // -----------------------------------------------------------------------------------
-  console.log(allGroupsArr);
-  console.log(groupsFiltrArr);
+  // const groupsFiltrArr = await getFetch('accounts', userToken);
+  // const allGroupsArrs = groupsFiltrArr.map((obj) => {
+  //   return {
+  //     id: obj.id,
+  //     name: obj.name,
+  //   };
+  // });
+  // console.log('aarr po mapo', allGroupsArrs);
+  // let rezai = [];
+  // function diffArray2(arr1, arr2) {
+  //   console.log('arrr pirmas ir antras ciklo pradzioj', arr1, arr2);
+  //   arr1.forEach((obj1) => {
+  //     arr2.forEach((obj2) => {
+  //       if (obj1.id !== obj2.id) {
+  //         rezai.push(obj1);
+  //       }
+  //     });
+  //   });
+  // }
+  // diffArray2(allGroupsArr, allGroupsArrs);
+  // console.log('pergale', rezai);
+  // // -----------------------------------------------------------------------------------
+  // console.log(allGroupsArr);
+  // console.log(groupsFiltrArr);
   if (!Array.isArray(allGroupsArr)) {
     alert('Jūs esate neprisijungęs arba baigesi Jūsų sesijos laikas. Prisijunkite iš naujo! ');
     window.location.href = 'login.html';
@@ -174,7 +178,7 @@ async function postFetch(group_id) {
     // formEl.elements.amount.value = '';
     // formEl.elements.description.value = '';
     getGroups(token);
-    handleError('Account add', true);
+    // handleError('Account add', true);
 
     // const { token } = dataInJs;
     // localStorage.setItem('Token', token);
@@ -215,7 +219,8 @@ formEl.addEventListener('submit', (e) => {
   postFetch(groupObj.group_id);
 });
 // -------------------------------------------------------------
-// --------------------------------------------------------------EXTRA 2 prideda nauja grupe
+// --------------------------------------------------------------------------------------------------EXTRA 2 prideda nauja grupe
+
 async function postFetchregister(name) {
   const groupObj = { name };
   //   console.log(billObj);
@@ -233,11 +238,11 @@ async function postFetchregister(name) {
     // formEl.elements.amount.value = '';
     // formEl.elements.description.value = '';
     addSelectValues(token);
-    // handleError('Group add', true);
+    // handleErrorNew('Group add', true);
 
     // const { token } = dataInJs;
     // localStorage.setItem('Token', token);
-
+    // divNewFormEl.classList.add('good-input-content')
     // window.location.replace('groups.html');
   } else if (dataInJs.error === 'invalid token') {
     clearErrors();
@@ -267,5 +272,7 @@ formNewEl.addEventListener('submit', (e) => {
   //     handleError(errorsArr);
   //     return;
   //   }
+  formNewEl.classList.remove('see-form');
   postFetchregister(addNewGroupObj.name);
+  formNewEl.elements.newGroup.value = '';
 });
