@@ -1,0 +1,238 @@
+@import 'reset.css';
+
+:root {
+  --main-color: rgba(200, 155, 106, 0.925);
+}
+
+h1 {
+  color: var(--main-color);
+}
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('fonas.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(88, 101, 114, 0.562);
+}
+
+nav {
+  background-color: rgba(60, 64, 68, 0.562);
+  border-bottom: 1px solid rgba(40, 41, 43, 0.774);
+  margin-bottom: 20px;
+}
+.navLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  color: white;
+  display: inline-block;
+}
+.navLink.active {
+  text-decoration: underline;
+  color: rgb(198, 198, 198);
+  background-color: rgb(103, 103, 103);
+}
+.content {
+  max-width: 800px;
+  width: 300px;
+  margin: auto auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+.title {
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+#register {
+  padding-top: 15px;
+}
+footer {
+  text-align: center;
+  margin-top: auto;
+  background-color: rgba(60, 64, 68, 0.562);
+  padding: 10px;
+  color: white;
+  font-size: 12px;
+  border-top: 1px solid rgba(40, 41, 43, 0.774);
+}
+
+input {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 1px;
+  padding: 4px;
+  width: 100%;
+  height: 32px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(40, 41, 43, 0.774);
+  border-radius: 2px;
+  background-color: rgba(60, 64, 68, 0);
+  color: white;
+}
+input::placeholder {
+  color: rgba(206, 212, 218, 0.76);
+  opacity: 1;
+}
+button {
+  width: 50%;
+  border: none;
+  border-radius: 2px;
+  height: 32px;
+  background-color: rgba(40, 41, 43, 0.774);
+  color: white;
+  letter-spacing: 2px;
+  border: 1px solid #aaa;
+  margin-top: 15px;
+}
+
+/*-------------------------------------------- Group page css*/
+
+.group_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.group-card {
+  background-color: rgba(255, 255, 255, 0.514);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 15px;
+}
+.group-content {
+  max-width: 800px;
+  margin: auto auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+.group-card:hover {
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+.group-card-title {
+  font-size: 12px;
+  margin-top: 10px;
+}
+/* --------------------------------------------------------Bills css */
+#group,
+#group-new {
+  display: none;
+}
+
+.form {
+  display: none;
+}
+#group.see-form,
+#group-new.see-form {
+  display: block;
+}
+.see-form {
+  display: block;
+}
+.addtitle,
+.addtitle-new {
+  font-size: 12px;
+  text-decoration: underline;
+}
+.addmenu {
+  margin-top: 10px;
+  font-size: 10px;
+  text-decoration: underline;
+}
+.addmenu:hover,
+.addtitle:hover,
+.addtitle-new:hover {
+  cursor: pointer;
+}
+.bills-content {
+  max-width: 800px;
+  margin: auto auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+
+/* --------------------------------------------Table */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 30px 20px;
+  background-color: rgba(88, 101, 114, 0.562);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+}
+th {
+  border-bottom: 1px solid rgba(40, 41, 43, 0.774);
+  background-color: rgba(88, 101, 114, 0.562);
+  color: var(--main-color);
+}
+
+td {
+  color: white;
+}
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid rgba(193, 198, 207, 0.774);
+}
+
+/* -------------------------------------validation */
+.error-msg,
+#err {
+  color: black;
+  margin-top: 0;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.invalid-input {
+  border-bottom: 2px solid tomato;
+  background-color: white;
+  color: black;
+}
+
+.invalid-input-content {
+  background-color: rgba(211, 159, 150, 0.774);
+}
+.good-input-content {
+  background-color: rgba(20, 192, 43, 0.774);
+}
+#err {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/* -------------------------------extra */
+.form-group,
+.form-group-new {
+  max-width: 800px;
+  width: 200px;
+  margin: 15px auto;
+  padding: 10px 10px;
+  background-color: rgba(116, 127, 138, 0.87);
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.6);
+  transition: 0.2s ease;
+  text-align: center;
+}
+.form-group.invalid-input-content {
+  background-color: rgba(211, 159, 150, 0.774);
+}
+.form-group.good-input-content {
+  background-color: rgba(20, 192, 43, 0.774);
+}
